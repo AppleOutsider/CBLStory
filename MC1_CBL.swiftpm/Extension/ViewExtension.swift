@@ -55,9 +55,44 @@ struct EdgeBorder: Shape {
     }
 }
 
-// MARK: - 
+// MARK: - 모서리 깎기 2
 
 extension View {
-    
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
 }
 
+struct RoundedCorner: Shape {
+
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+// MARK: - Shape 모서리 깍기 3....
+struct CustomCorner: Shape {
+    var radius: CGFloat
+    var corners: UIRectCorner
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+// MARK: - Customhidden
+extension View {
+    @ViewBuilder
+    func customHidden(_ isHidden: Bool) -> some View {
+        if isHidden {
+            self.hidden()
+        } else {
+            self
+        }
+    }
+}

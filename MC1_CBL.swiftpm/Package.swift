@@ -17,7 +17,7 @@ let package = Package(
             name: "MC1_CBL",
             targets: ["AppModule"],
             bundleIdentifier: "Ryu.MC1-CBL",
-            teamIdentifier: "",
+            teamIdentifier: "YKG7843K2L",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .magicWand),
