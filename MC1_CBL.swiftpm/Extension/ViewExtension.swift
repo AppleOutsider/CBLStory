@@ -96,3 +96,18 @@ extension View {
         }
     }
 }
+// MARK: - gradientline
+struct GradientLine: View {
+    let startPoint: UnitPoint
+    let endPoint: UnitPoint
+    let colors: [Color]
+    
+    var body: some View {
+        LinearGradient(
+            gradient: Gradient(colors: colors),
+            startPoint: startPoint,
+            endPoint: endPoint
+        )
+        .frame(height: 2)
+    }
+}
