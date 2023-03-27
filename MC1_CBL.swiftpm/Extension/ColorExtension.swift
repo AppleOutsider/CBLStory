@@ -14,7 +14,16 @@ extension Color {
     static let peach = Color("peach")   // 예시
     static let primaryShadow = Color.primary.opacity(0.2)
     static let background = Color(UIColor.systemGray6)
-    static let secondaryText = Color(hex: "#6e6e6e") // ~
+    static let secondaryText = Color(hex: "#6e6e6e") //
+    static let bg = Color(hex: "#000000").opacity(0.3)
+    // MARK: - 대사 배경 색
+    // 그라데이션 없이 투명도 50%
+    static let darkBack = Color(hex: "#000000")
+    // start: 75% , end: 50% 흰 배경
+    static let whiteBack = Color(hex: "#FFFFFF")
+    // 대사 투명도 x
+    static let darkFore = Color(hex: "#000000")
+    static let whiteFore = Color(hex: "#FFFFFF")
     
     init(hex: String) {
         let scanner = Scanner(string: hex)  // 문자열 파서 역할을 하는 클래스

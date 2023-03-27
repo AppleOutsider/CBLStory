@@ -112,7 +112,84 @@ struct GradientLine: View {
     }
 }
 // MARK: - textView Modifiers
-
-
+extension View {
+    // 이름 text 하얀 수식어
+    func textPersonWhite() -> some View {
+        self
+            .font(.title)
+            .foregroundColor(.white)
+            .padding(.top , 30)
+    }
+    // 이름 text 검은 수식어
+    func textPersonBlack() -> some View {
+        self
+            .font(.title)
+            .foregroundColor(.black)
+            .padding(.top , 30)
+    }
+    // 대사 text 하얀 수식어
+    func textTalkWhite() -> some View {
+        self
+            .font(.title)
+            .foregroundColor(.white)
+    }
+    // 대사 text 검은 수식어
+    func textTalkBlack() -> some View {
+        self
+            .font(.title)
+            .foregroundColor(.black)
+    }
+    // VStack 내부 사이즈 조절
+    func textVStackSize() -> some View {
+        self
+            .frame(width: UIScreen.main.bounds.size.width - 40, height: 279)
+            .padding()
+            .padding(.leading, 100)
+    }
+    // 흰 배경 왼쪽 외부 사이즈 및 설정
+    func textWhiteLeft() -> some View {
+        self
+            .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
+            .frame(maxWidth: 1472, maxHeight: 279)
+            .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight])
+            .overlay{
+                CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topRight])
+                    .stroke(.white, lineWidth: 1.5)
+            }
+    }
+    // 흰 배경 오른쪽 외부 사이즈 및 설정
+    func textWhiteRight() -> some View {
+        self
+            .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
+            .frame(maxWidth: 1472, maxHeight: 279)
+            .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topLeft])
+            .overlay{
+                CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft])
+                    .stroke(.white, lineWidth: 1.5)
+            }
+    }
+    // 흰 배경 가운데 or 여러명 외부 사이즈 및 설정
+    func textWhiteCenter() -> some View {
+        self
+            .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
+            .frame(maxWidth: 1472, maxHeight: 279)
+            .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
+            .overlay{
+                CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
+                    .stroke(.white, lineWidth: 1.5)
+            }
+    }
+    // 검은 배경 내래이션
+    func textBlack() -> some View {
+        self
+            .background(Color.darkBack.opacity(0.5))
+            .frame(maxWidth: 1472, maxHeight: 279)
+            .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
+            .overlay{
+                CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
+                    .stroke(.white.opacity(0.5), lineWidth: 1.5)
+            }
+    }
+}
 
 

@@ -12,77 +12,41 @@ struct lineTextView: View {
     @State var textCnt: Int = 0
     @State var text: String = " "
     @State var name: String = " "
-    @State var lineModels: DataModels
-    @State var touchValid: Bool = true
-    @State var hiddenText: Bool = false
-    // bool 값으로 배경 색 확인 변경
-    // 3항 연산자로 대사 색 다 설정
-    // enum or switch 로 상황에 따라 대사 박스 모양 변경
+    @State var lineModels: DataModels   // 데이터
+    @State var touchValid: Bool = true  // 대사 typewriter() 중 터치 불가
+    @State var hiddenText: Bool = false // 대사 박스 숨길지 말지
+    @State var personPosition: DataModels.personPosition = .none    // 이 값에 따라 대사 박스 바뀜
+
     // geometryproxy 값 받아서 가변적으로 사이즈 조정
+    // position에 따라 모서리 깎이게 바꿔주기
     // MARK: - body
     var body: some View {
         
         HStack(alignment: .center) {
             
-            ZStack {
-                
-                //Color.yellow
-                Image("bg")
-                    .scaledToFit()
-                    //.opacity(0.4)
-                
                 Button {
                     typeWriter()
                     touchValid = false
                 } label: {
-                       
-                        
-                        HStack {
-                            VStack(alignment: .leading, spacing: 30) {
-                                // 발언자
-                                Text(name)
-                                    .bold()
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .padding(.top , 30)
-                                
-                                    
-                                // 해나가 그려준 선 이미지로 넣어버리기.....(수정완료~)
-                                GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.white, .gray])
-                                    
-                                // 대사
-                                Text(text)
-                                    .bold()
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                
-                                Spacer()
-                                
-                            } // VStack 1
-                            .frame(width: UIScreen.main.bounds.size.width - 40, height: 279)
-                            .padding()
-                            .padding(.leading, 100)
-                            Spacer()
-                        }
-                        .background(Color("textbg"))
-                        .frame(maxWidth: 1472, maxHeight: 279)
-                        .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight])
-                        
+                    switch personPosition {
+                    case .left:
+                        CustomWhiteLeft()
+                    case .right:
+                        CustomWhiteRight()
+                    case .center:
+                        CustomWhiteCenter()
+                    case .none: // 내레이션
+                        CustomBlackCenter()
+                    }
             
                 } // label
                 .frame(width: 1472, height: 279, alignment: .leading)
-                .overlay{
-                    CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topRight])
-                        .stroke(.white, lineWidth: 3)
-                }
                 .customHidden(hiddenText)
-            } // ZStack 1
-            // 대사 중에 터지 불가
-            .allowsHitTesting(touchValid)
-            // 배경 위치 잡을 때
-        .offset(y: 370)
-        }
-        
+                // 대사 중에 터치 불가
+                .allowsHitTesting(touchValid)
+                // 배경 위치 잡을 때
+                .offset(y: 370)
+        } // HStack
     } // body
     
     // MARK: - Function
@@ -118,12 +82,96 @@ struct lineTextView: View {
     func textExposed() {
         hiddenText = false
     }
+    
+    // MARK: - 뷰 를 어떻게 해보려고 ...
 
-} // View
+    // 베이스로 사용하자
+    func CustomTextView(lineModels: DataModels) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 30) {
+                
+                Text(lineModels.names[0])
+                    .bold()
+                    .textPersonBlack()
+
+                GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.gray, .white])
+                    
+                Text(lineModels.lines[0])
+                    .bold()
+                    .textTalkBlack()
+                
+                Spacer()
+            }
+            .textVStackSize()
+            
+            Spacer()
+        }
+        //.background(Color.green)
+    }
+
+    // 내레이션 베이스
+    func CustomtextBlack(lineModels: DataModels) -> some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 30) {
+                
+                Text(lineModels.names[0])
+                    .bold()
+                    .textPersonWhite()
+                
+                GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.white, .gray])
+                    
+                Text(lineModels.lines[0])
+                    .bold()
+                    .textTalkWhite()
+                
+                Spacer()
+        
+            }
+            .textVStackSize()
+            
+            Spacer()
+        }
+    }
+    
+    // MARK: - 여기서 4가지 버전으로
+    // 흰 배경 왼쪽 대사
+    func CustomWhiteLeft() -> some View {
+        CustomTextView(lineModels: DataModels())
+            .textWhiteLeft()
+    }
+
+    // 흰 배경 오른쪽 대사
+    func CustomWhiteRight() -> some View {
+        CustomTextView(lineModels: DataModels())
+            .textWhiteRight()
+    }
+
+    // 흰 배경 가운데 대사
+    func CustomWhiteCenter() -> some View {
+        CustomTextView(lineModels: DataModels())
+            .textWhiteCenter()
+    }
+
+    // 검은 배경 내래이션
+    func CustomBlackCenter() -> some View {
+        CustomtextBlack(lineModels: DataModels())
+            .textBlack()
+    }
+
+}
+
 
 // MARK: - Previews
 struct lineTextView_Previews: PreviewProvider {
     static var previews: some View {
-        lineTextView(lineModels: DataModels())
+        
+        VStack {
+            lineTextView(lineModels: DataModels(), personPosition: .none)
+            lineTextView(lineModels: DataModels(), personPosition: .left)
+            lineTextView(lineModels: DataModels(), personPosition: .right)
+            lineTextView(lineModels: DataModels(), personPosition: .center)
+            Spacer()
+        }
+        .background(Image("bg"))
     }
 }
