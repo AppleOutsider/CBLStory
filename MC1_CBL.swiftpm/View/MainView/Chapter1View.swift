@@ -86,6 +86,7 @@ struct Chapter1View: View {
                                                   line: text, soundEffect: nil, geo: geo)
                             }
                             
+
                         }
                     }
                     .frame(width: geo.size.width, height: geo.size.height / 3)
