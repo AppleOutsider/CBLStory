@@ -116,41 +116,43 @@ extension View {
     // 이름 text 하얀 수식어
     func textPersonWhite() -> some View {
         self
-            .font(.title)
+            .font(.customMedium30)
             .foregroundColor(.white)
             .padding(.top , 30)
     }
     // 이름 text 검은 수식어
     func textPersonBlack() -> some View {
         self
-            .font(.title)
+            .font(.customMedium30)
             .foregroundColor(.black)
             .padding(.top , 30)
     }
     // 대사 text 하얀 수식어
     func textTalkWhite() -> some View {
         self
-            .font(.title)
+            .font(.customLight30)
             .foregroundColor(.white)
     }
     // 대사 text 검은 수식어
     func textTalkBlack() -> some View {
         self
-            .font(.title)
+            .font(.customLight30)
             .foregroundColor(.black)
     }
     // VStack 내부 사이즈 조절
     func textVStackSize() -> some View {
         self
-            .frame(width: UIScreen.main.bounds.size.width - 40, height: 279)
+            //.frame(width: UIScreen.main.bounds.size.width - 40, height: 279)
             .padding()
-            .padding(.leading, 100)
+            .padding(.leading, 40)
+            //.padding(.trailing, 600)
+            
     }
     // 흰 배경 왼쪽 외부 사이즈 및 설정
-    func textWhiteLeft() -> some View {
+    func textWhiteLeft(geo: GeometryProxy) -> some View {
         self
             .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
-            .frame(maxWidth: 1472, maxHeight: 279)
+            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topRight])
@@ -158,10 +160,10 @@ extension View {
             }
     }
     // 흰 배경 오른쪽 외부 사이즈 및 설정
-    func textWhiteRight() -> some View {
+    func textWhiteRight(geo: GeometryProxy) -> some View {
         self
             .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
-            .frame(maxWidth: 1472, maxHeight: 279)
+            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topLeft])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft])
@@ -169,10 +171,10 @@ extension View {
             }
     }
     // 흰 배경 가운데 or 여러명 외부 사이즈 및 설정
-    func textWhiteCenter() -> some View {
+    func textWhiteCenter(geo: GeometryProxy) -> some View {
         self
             .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
-            .frame(maxWidth: 1472, maxHeight: 279)
+            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
@@ -180,15 +182,20 @@ extension View {
             }
     }
     // 검은 배경 내래이션
-    func textBlack() -> some View {
+    func textBlack(geo: GeometryProxy) -> some View {
         self
             .background(Color.darkBack.opacity(0.5))
-            .frame(maxWidth: 1472, maxHeight: 279)
+            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
                     .stroke(.white.opacity(0.5), lineWidth: 1.5)
             }
+    }
+    // gradient line frame 값
+    func gradientFrame(geo: GeometryProxy) -> some View {
+        self
+            .frame(maxWidth: geo.size.width / 3)
     }
 }
 
