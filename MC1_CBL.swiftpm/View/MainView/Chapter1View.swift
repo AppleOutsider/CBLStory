@@ -15,9 +15,14 @@ struct Chapter1View: View {
     @State var text: String = ""
     @State var textLine: String = ""
     @State var mainViewDataList: [MainViewData] = [
-        MainViewData(bgImage: "bg", lineModels:  LineModels(names: " ", lines: " ")),
-        MainViewData(bgImage: "bg", lineModels:  LineModels(names: "사야1", lines: "사야의 대사1")),
-        MainViewData(bgImage: "bg", lineModels:  LineModels(names: "사야2", lines: "사야의 대사2"))
+        MainViewData(leftImage: "",centerImage: "", rightImage: "", bgImage: "bg", peopleDirection: .none, talkingPersonDirection: .none,
+                     lineModels: LineModels(names: "", lines: "", soundEffect: nil)),
+        
+        MainViewData(leftImage: "",centerImage: "", rightImage: "", bgImage: "bg", peopleDirection: .left, talkingPersonDirection: .left,
+                     lineModels: LineModels(names: "이름1", lines: "대사1 입니다.", soundEffect: nil)),
+        
+        MainViewData(leftImage: "",centerImage: "", rightImage: "", bgImage: "bg", peopleDirection: .right, talkingPersonDirection: .right,
+                     lineModels: LineModels(names: "이름2", lines: "대사2 입니다.", soundEffect: nil))
     ]
     
     var body: some View {
