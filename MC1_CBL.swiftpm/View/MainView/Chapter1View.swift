@@ -71,20 +71,21 @@ struct Chapter1View: View {
                         
                         if Chapter1Data.dataList[dataindex].lineModels.names == "내레이션" {
                             CustomBlackCenter(name: Chapter1Data.dataList[dataindex].lineModels.names,
-                                              line: text, soundEffect: nil)
+                                              line: text, soundEffect: nil, geo: geo)
                         } else {
                             
                             switch Chapter1Data.dataList[dataindex].talkingPersonDirection {
                             case .left:
                                 CustomWhiteLeft(name: Chapter1Data.dataList[dataindex].lineModels.names,
-                                                line: text, soundEffect: nil)
+                                                line: text, soundEffect: nil, geo: geo)
                             case .right:
                                 CustomWhiteRight(name: Chapter1Data.dataList[dataindex].lineModels.names,
-                                                 line: text, soundEffect: nil)
+                                                 line: text, soundEffect: nil, geo: geo)
                             default:
                                 CustomWhiteCenter(name: Chapter1Data.dataList[dataindex].lineModels.names,
-                                                  line: text, soundEffect: nil)
+                                                  line: text, soundEffect: nil, geo: geo)
                             }
+                            
                         }
                     }
                     .frame(width: geo.size.width, height: geo.size.height / 3)
