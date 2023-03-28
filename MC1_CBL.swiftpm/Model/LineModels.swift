@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct DataModels {
-    var names: [String] = ["Saya", "Ryu", "Kim"]
-    var lines: [String] = ["너무 솔루션 지향적이에요.", "제 생각이 정답은 아니에요", "해리포터가 어쩌구 저쩌구????"]
-    var position: personPosition = .left
+class LineModels {
+    var names: String
+    var lines: String
+//    var position: personPosition = .left
     var soundEffect: String? = nil
     
     enum personPosition {
@@ -18,5 +18,11 @@ struct DataModels {
         case right
         case center
         case none
+    }
+    
+    init(names: String, lines: String, soundEffect: String? = nil) {
+        self.names = names
+        self.lines = lines
+        self.soundEffect = soundEffect
     }
 }
