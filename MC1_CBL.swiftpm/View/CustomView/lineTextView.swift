@@ -1,6 +1,6 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by YU WONGEUN on 2023/03/25.
 //
@@ -38,7 +38,9 @@ import SwiftUI
 ////                case .none: // 내레이션
 ////                    CustomBlackCenter()
 ////                }
-//                
+
+//
+
 //            } // label
 //            .frame(width: 1472, height: 279, alignment: .leading)
 //            .customHidden(hiddenText)
@@ -119,6 +121,7 @@ func CustomtextBlack(lineModels: LineModels, geo: GeometryProxy) -> some View {
             Text(lineModels.names)
                 .bold()
                 .textPersonWhite()
+
                 // .textPersonWhite(geo: GeoProxy)  geo.size.width - 40 geo.size.height / 4 
             
             GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.white.opacity(1), .white.opacity(0)])

@@ -14,89 +14,97 @@ struct Chapter1View: View {
     @State var isTouchable: Bool = true
     @State var text: String = ""
     @State var textLine: String = ""
-    @State var mainViewDataList: [MainViewData] = [
-        MainViewData(leftImage: "",centerImage: "", rightImage: "", bgImage: "bg", peopleDirection: .none, talkingPersonDirection: .none,
-                     lineModels: LineModels(names: "", lines: "", soundEffect: nil)),
-        
-        MainViewData(leftImage: "",centerImage: "", rightImage: "", bgImage: "bg", peopleDirection: .left, talkingPersonDirection: .left,
-                     lineModels: LineModels(names: "이름1", lines: "대사1 입니다.", soundEffect: nil)),
-        
-        MainViewData(leftImage: "",centerImage: "", rightImage: "", bgImage: "bg", peopleDirection: .right, talkingPersonDirection: .right,
-                     lineModels: LineModels(names: "이름2", lines: "대사2 입니다.", soundEffect: nil))
-    ]
     
     var body: some View {
-            ZStack {
-                // 배경이미지 대체 배경이미지 .onApear { bgm 재생 }
+        ZStack {
+            
+            GeometryReader { geo in
                 Image("bg")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea(.all)
+                    .frame(width: geo.size.width, height: geo.size.height)
                     .onAppear {
                         // bgm 재생
                     }
-                GeometryReader { geo in
-                    Image("bg")
-                        .resizable()
-                        .ignoresSafeArea()
-                        .frame(height: geo.size.height)
-                    
-                    VStack {
-                        Spacer()
-                        HStack {
-                            /**
-                             이미지 3개 대체
-                             상황따라 .brigtness, .opacity 조절하게
-                             커스텀뷰로 만들어서 넣을 것
-                             */
-                            Image(systemName: "bolt")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 3)
-                            Image(systemName: "bolt")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 3)
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        /**
+                         이미지 3개 대체
+                         상황따라 .brigtness, .opacity 조절하게
+                         커스텀뷰로 만들어서 넣을 것
+                         */
+                        if let imageName = Chapter1Data.dataList[dataindex].leftImage {
+                            
                             Image(systemName: "bolt")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width / 3)
                         }
-                    }
-                    
-                    VStack {
-                        Spacer()
-                        Button {
+                        if let imageName = Chapter1Data.dataList[dataindex].leftImage {
                             
-                            dataindex += 1
-                            // 상황따라 효과음도 재생
-                            isTouchable = false
-                            typeWriter()
-                            // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop
-                        } label: {
-    //                        switch _ {
-    //
-    //                        }
-                            
-                            CustomWhiteLeft(name: mainViewDataList[dataindex].lineModels.names,
-                                            line: text, soundEffect: nil,geo: geo)
+                            Image(systemName: "bolt")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width / 3)
                         }
-                        .frame(width: geo.size.width, height: geo.size.height / 3)
+                        if let imageName = Chapter1Data.dataList[dataindex].leftImage {
+                            Image(systemName: "bolt")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geo.size.width / 3)
+                        }
                     }
                 }
+                VStack {
+                    Spacer()
+                    Button {
+                        
+                        dataindex += 1
+                        // 상황따라 효과음도 재생
+                        isTouchable = false
+                        typeWriter()
+                        // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop
+                    } label: {
+                        
+                        if Chapter1Data.dataList[dataindex].lineModels.names == "내레이션" {
+                            CustomBlackCenter(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                                              line: text, soundEffect: nil, geo: geo)
+                        } else {
+                            
+                            switch Chapter1Data.dataList[dataindex].talkingPersonDirection {
+                            case .left:
+                                CustomWhiteLeft(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                                                line: text, soundEffect: nil, geo: geo)
+                            case .right:
+                                CustomWhiteRight(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                                                 line: text, soundEffect: nil, geo: geo)
+                            default:
+                                CustomWhiteCenter(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                                                  line: text, soundEffect: nil, geo: geo)
+                            }
+                            
+
+                        }
+                    }
+                    .frame(width: geo.size.width, height: geo.size.height / 3)
+                }
             }
+        }
+        .allowsHitTesting(isTouchable)
     }
-    
     
     // MARK: - 타이핑 애니메이션
     func typeWriter(at position: Int = 0) {
         if position == 0 {
             text = ""
         }
-
-        if position < mainViewDataList[dataindex].lineModels.lines.count {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                text.append(mainViewDataList[dataindex].lineModels.lines[position])
+        
+        if position < Chapter1Data.dataList[dataindex].lineModels.lines.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                text.append(Chapter1Data.dataList[dataindex].lineModels.lines[position])
                 typeWriter(at: position + 1)
             }
         } else {
@@ -113,15 +121,22 @@ struct MainView_preview: PreviewProvider {
     }
 }
 
-
-/**?
- 
- 
- chapter 1 -> 선택지 -> 챕터 2
-                -> 배드엔딩
- 
- 
- 
- **/
-
-
+// MARK: - characterimageView
+//func chracterImageView(characterName: String, whichPerson: MainViewData.direction, geo: GeometryProxy, allowDirection: [MainViewData.direction]) -> some View {
+//    return VStack {
+//        
+//        if allowDirection.contains(whichPerson) {
+//            Image(characterName)
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: geo.size.width / 3)
+//        } else {
+//            Image(characterName)
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: geo.size.width / 3)
+//                .brightness(-0.4)
+//                .opacity(0.6)
+//        }
+//    }
+//}
