@@ -16,8 +16,8 @@ let package = Package(
         .iOSApplication(
             name: "MC1_CBL",
             targets: ["AppModule"],
-            bundleIdentifier: "San.MC1-CBL",
-            teamIdentifier: "69BY22GUTU",
+            bundleIdentifier: "Ryu.MC1-CBL",
+            teamIdentifier: "YKG7843K2L",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .magicWand),

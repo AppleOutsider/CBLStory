@@ -201,3 +201,10 @@ extension View {
 }
 
 
+struct ViewExtension_preview: PreviewProvider {
+    
+    static var previews: some View {
+        EmptyView()
+            .textVStackSize()
+    }
+}
