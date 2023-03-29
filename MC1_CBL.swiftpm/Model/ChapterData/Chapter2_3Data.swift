@@ -64,7 +64,14 @@ class Chapter2_3Data {
                      bgImage: "bg9",
                      peopleDirection: .none,
                      talkingPersonDirection: .none,
-                     lineModels: LineModels(names: "내레이션", lines: "두번의 위기에서 벗어난 해리포터 일행, 그들은 마지막 종착지로 점점 더 나아간다.")),
+                     lineModels: LineModels(names: "내레이션", lines: "두번의 위기에서 벗어난 해리포터 일행")),
+        MainViewData(leftImage: "",
+                     centerImage: "",
+                     rightImage: "" ,
+                     bgImage: "bg9",
+                     peopleDirection: .none,
+                     talkingPersonDirection: .none,
+                     lineModels: LineModels(names: "내레이션", lines: " 그들은 마지막 종착지로 점점 더 나아간다.")),
         
     ]
 }
