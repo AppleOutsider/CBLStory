@@ -94,14 +94,12 @@ func CustomTextView(lineModels: LineModels, geo: GeometryProxy) -> some View {
         VStack(alignment: .leading, spacing: 30) {
             
             Text(lineModels.names)
-                .bold()
                 .textPersonBlack()
             
             GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.black.opacity(1), .black.opacity(0)])
                 .gradientFrame(geo: geo)
             
             Text(lineModels.lines)
-                .bold()
                 .textTalkBlack()
             
             Spacer()
@@ -130,6 +128,7 @@ func CustomtextBlack(lineModels: LineModels, geo: GeometryProxy) -> some View {
             Text(lineModels.lines)
                 .bold()
                 .textTalkWhite()
+                .lineLimit(3)
             
             Spacer()
             
