@@ -2,13 +2,13 @@
 //  File.swift
 //  
 //
-//  Created by YU WONGEUN on 2023/03/24.
+//  Created by ChoiYujin on 2023/03/29.
 //
 
 import Foundation
 import SwiftUI
 
-struct Chapter1View: View {
+struct Chapter4_1View: View {
     
     @State var dataindex: Int = 0
     @State var isTouchable: Bool = true
@@ -19,7 +19,7 @@ struct Chapter1View: View {
         ZStack {
             
             GeometryReader { geo in
-                Image(Chapter1Data.dataList[dataindex].bgImage)
+                Image(Chapter4_1Data.dataList[dataindex].bgImage)
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea(.all)
@@ -40,21 +40,21 @@ struct Chapter1View: View {
                          상황따라 .brigtness, .opacity 조절하게
                          커스텀뷰로 만들어서 넣을 것
                          */
-                        if let imageName = Chapter1Data.dataList[dataindex].leftImage {
+                        if let imageName = Chapter4_1Data.dataList[dataindex].leftImage {
                             
                             Image(systemName: "bolt")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width / 3)
                         }
-                        if let imageName = Chapter1Data.dataList[dataindex].leftImage {
+                        if let imageName = Chapter4_1Data.dataList[dataindex].leftImage {
                             
                             Image(systemName: "bolt")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: geo.size.width / 3)
                         }
-                        if let imageName = Chapter1Data.dataList[dataindex].leftImage {
+                        if let imageName = Chapter4_1Data.dataList[dataindex].leftImage {
                             Image(systemName: "bolt")
                                 .resizable()
                                 .scaledToFit()
@@ -73,20 +73,20 @@ struct Chapter1View: View {
                         // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop
                     } label: {
                         
-                        if Chapter1Data.dataList[dataindex].lineModels.names == "내레이션" {
-                            CustomBlackCenter(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                        if Chapter4_1Data.dataList[dataindex].lineModels.names == "내레이션" {
+                            CustomBlackCenter(name: Chapter4_1Data.dataList[dataindex].lineModels.names,
                                               line: text, soundEffect: nil, geo: geo)
                         } else {
                             
-                            switch Chapter1Data.dataList[dataindex].talkingPersonDirection {
+                            switch Chapter4_1Data.dataList[dataindex].talkingPersonDirection {
                             case .left:
-                                CustomWhiteLeft(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                                CustomWhiteLeft(name: Chapter4_1Data.dataList[dataindex].lineModels.names,
                                                 line: text, soundEffect: nil, geo: geo)
                             case .right:
-                                CustomWhiteRight(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                                CustomWhiteRight(name: Chapter4_1Data.dataList[dataindex].lineModels.names,
                                                  line: text, soundEffect: nil, geo: geo)
                             default:
-                                CustomWhiteCenter(name: Chapter1Data.dataList[dataindex].lineModels.names,
+                                CustomWhiteCenter(name: Chapter4_1Data.dataList[dataindex].lineModels.names,
                                                   line: text, soundEffect: nil, geo: geo)
                             }
                             
@@ -106,9 +106,9 @@ struct Chapter1View: View {
             text = ""
         }
         
-        if position < Chapter1Data.dataList[dataindex].lineModels.lines.count {
+        if position < Chapter4_1Data.dataList[dataindex].lineModels.lines.count {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                text.append(Chapter1Data.dataList[dataindex].lineModels.lines[position])
+                text.append(Chapter4_1Data.dataList[dataindex].lineModels.lines[position])
                 typeWriter(at: position + 1)
             }
         } else {
@@ -117,18 +117,18 @@ struct Chapter1View: View {
     }
 }
 
-struct MainView_preview: PreviewProvider {
+struct Chapter4_1View_Previews: PreviewProvider {
     
     static var previews: some View {
-        Chapter1View()
+        Chapter4_1View()
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
 
 // MARK: - characterimageView
 //func chracterImageView(characterName: String, whichPerson: MainViewData.direction, geo: GeometryProxy, allowDirection: [MainViewData.direction]) -> some View {
-//    return VStack {       
-//        
+//    return VStack {
+//
 //        if allowDirection.contains(whichPerson) {
 //            Image(characterName)
 //                .resizable()
@@ -144,3 +144,4 @@ struct MainView_preview: PreviewProvider {
 //        }
 //    }
 //}
+
