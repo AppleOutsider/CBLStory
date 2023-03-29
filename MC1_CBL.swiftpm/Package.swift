@@ -16,8 +16,8 @@ let package = Package(
         .iOSApplication(
             name: "MC1_CBL",
             targets: ["AppModule"],
-            bundleIdentifier: "Ryu.MC1-CBL",
-            teamIdentifier: "UG6UT639QH",
+            bundleIdentifier: "San.MC1-CBL",
+            teamIdentifier: "69BY22GUTU",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .magicWand),
@@ -37,7 +37,10 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "AppModule",
-            path: "."
+            path: ".",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )
