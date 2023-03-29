@@ -15,7 +15,7 @@ class Chapter2_2Bgm: ObservableObject {
     
     func playSound() {
         
-        guard let url = Bundle.main.url(forResource: "mc1_bgm_cave1", withExtension: ".mp3") else { return }
+        guard let url = Bundle.main.url(forResource: "mc1_bgm_cave2", withExtension: ".mp3") else { return }
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.play()
@@ -24,7 +24,7 @@ class Chapter2_2Bgm: ObservableObject {
         }
     }
     func stopSound() {
-        guard let url = Bundle.main.url(forResource: "mc1_bgm_cave1", withExtension: ".mp3") else { return }
+        guard let url = Bundle.main.url(forResource: "mc1_bgm_cave2", withExtension: ".mp3") else { return }
         do {
             player = try AVAudioPlayer(contentsOf: url)
             player?.stop()
