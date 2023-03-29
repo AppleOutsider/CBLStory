@@ -25,7 +25,7 @@ struct Chapter3_2View: View {
                     .ignoresSafeArea(.all)
                     .frame(width: geo.size.width, height: geo.size.height)
                     .onAppear {
-                        // bgm 재생
+                        Chapter3_2Bgm.instance.playSound()
                     }
                 Rectangle()
                     .fill(.white.opacity(0.0))
@@ -66,8 +66,14 @@ struct Chapter3_2View: View {
                     Spacer()
                     Button {
                         
-                        dataindex += 1
-                        // 상황따라 효과음도 재생
+                        if dataindex + 1 == Chapter3_2Data.dataList.count {
+                            Chapter3_2Bgm.instance.stopSound()
+                        } else {
+                            dataindex += 1
+                            if let soundeffect = Chapter3_2Data.dataList[dataindex].lineModels.soundEffect {
+                                EffectSound.instance.playSound(name: soundeffect)
+                            }
+                        }
                         isTouchable = false
                         typeWriter()
                         // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop

@@ -9,6 +9,13 @@ import Foundation
 
 class Chapter3_1Data {
     static let dataList: [MainViewData] = [
+        MainViewData(leftImage: "",
+                     centerImage: "",
+                     rightImage: "" ,
+                     bgImage: "bg11",
+                     peopleDirection: .none,
+                     talkingPersonDirection: .none,
+                     lineModels: LineModels(names: "", lines: "")),
         MainViewData(leftImage: "ron_painful",
                      centerImage: "harry_painful",
                      rightImage: "her_painful" ,
