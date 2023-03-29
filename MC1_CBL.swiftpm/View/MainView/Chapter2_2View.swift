@@ -26,7 +26,7 @@ struct Chapter2_2View: View {
                     .ignoresSafeArea(.all)
                     .frame(width: geo.size.width, height: geo.size.height)
                     .onAppear {
-                        Chapter2_2Bgm.instance.stopSound()
+                        Chapter2_2Bgm.instance.playSound()
                     }
                 Rectangle()
                     .fill(.white.opacity(0.0))
