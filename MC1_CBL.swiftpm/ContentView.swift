@@ -7,7 +7,17 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+                
+            Text("Hello, world!")
+                .font(.custom("GmarketSansBold", size: 30))
             
         }
+    }
+}
+
+struct ContentView_preview: PreviewProvider {
+    
+    static var previews: some View {
+        ContentView()
     }
 }

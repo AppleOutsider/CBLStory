@@ -112,6 +112,7 @@ struct GradientLine: View {
     }
 }
 // MARK: - textView Modifiers
+                            
 extension View {
     // 이름 text 하얀 수식어
     func textPersonWhite() -> some View {

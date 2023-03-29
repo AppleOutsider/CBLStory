@@ -14,5 +14,5 @@ extension Font {
     
     static let customLight30 = Font.custom("GmarketSansLight", size: 30)
     
-    
 }
+
