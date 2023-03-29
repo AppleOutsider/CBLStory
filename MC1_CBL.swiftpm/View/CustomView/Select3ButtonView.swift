@@ -1,38 +1,51 @@
 //
 //  SwiftUIView 2.swift
-//  
+//
 //
 //  Created by doeun kim on 2023/03/27.
 //
 
 import SwiftUI
 
-struct SelectBtnView: View {
+struct Select3BtnView: View {
     
     @State var tag:Int? = nil
     @State var option : String
+    @State var selectIdx : Int
     
     //geometry proxy
     var body: some View {
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
         
-        // 궁금한 부분 action에 해당하는 함수를 매개 변수로 넘겨주지 않고 buttom view만 그리고 action 처리는 별도의 공간에서 진행하는 것이 좋을지
-        //if 문으로 선택 양상 index를 구분 받아 특정 동작을 하도록 처리하는게 더 좋을지
         ZStack{
-            // 페이지 이동
-//            NavigationLink(destination: lineTextView(lineModels: DataModels(), personPosition: .none), tag: 1, selection: self.$tag ) {
-//                      EmptyView()
-//            }
+            // 페이지 이동 - 베드 엔딩으로의 이동
+            
+            // 베드 엔딩 배경 이미지 생각 필요
+            NavigationLink(destination: BadEnding3View(), tag: 1, selection: self.$tag ) {
+                EmptyView()}.navigationBarHidden(true)
+                .labelsHidden()
+                .navigationBarBackButtonHidden(true)
+            
+            // 다음 챕터 불러오기
+            NavigationLink(destination: BadEnding3View(), tag: 2, selection: self.$tag ) {
+                EmptyView()}.navigationBarHidden(true)
+                .labelsHidden()
+                .navigationBarBackButtonHidden(true)
             
             //선택 버튼
             Button(
                 action: {
-                    self.tag = 1;
+                    if(selectIdx == 1){
+                        self.tag = 1;
+                        // 다음 챕터로 이동하기 위해 tag = 1로 설정하여 tag == 1에 해당하는 navigation link 동작
+                    }
+                    else{
+                        self.tag = 2;
+                    }
                 }
             ){
                 ZStack{
-                    // 높이와 너비를 기기별 비율로 받아오는 것이 좋을지 혹은 특정 mac에서만 진행한다는 가정 하에 고정 값으로 주는 것이 좋을지
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.black)
                         .opacity(0.5)
@@ -46,6 +59,7 @@ struct SelectBtnView: View {
                     Text("\(option)")
                         .foregroundColor(.white)
                         .font(.customMedium27)
+                        .frame(width: screenWidth*0.59, height: screenHeight*0.09)
                     
                 }
             }
@@ -54,8 +68,8 @@ struct SelectBtnView: View {
         }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
+struct Select3BtnView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectBtnView(option: "솔루션을 생각하지 않는다.")
+        Select3BtnView(option: "솔루션을 생각하지 않는다.", selectIdx: 1)
     }
 }
