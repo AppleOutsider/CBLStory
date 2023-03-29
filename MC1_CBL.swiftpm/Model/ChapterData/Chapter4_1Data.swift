@@ -10,6 +10,13 @@ import Foundation
 class Chapter4_1Data {
     
    static let dataList: [MainViewData] = [
+    MainViewData(leftImage: "",
+                 centerImage: "",
+                 rightImage: "" ,
+                 bgImage: "bg15",
+                 peopleDirection: .none,
+                 talkingPersonDirection: .none,
+                 lineModels: LineModels(names: "", lines: "")),
         MainViewData(leftImage: "", // 왼쪽에 들어갈 사람 이미지파일명 ex) harry_smile.png면 harry_smile
                      centerImage: "mcg_serious", // 중앙에 들어갈 사람 이미지파일명
                      rightImage: "" , // 오른쪽에 들어갈 사람 이미지파일명

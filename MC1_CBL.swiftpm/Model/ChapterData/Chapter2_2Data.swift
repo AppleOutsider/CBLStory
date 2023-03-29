@@ -12,6 +12,13 @@ class Chapter2_2Data {
     
     static let dataList: [MainViewData] = [
         MainViewData(leftImage: "",
+                     centerImage: "",
+                     rightImage: "" ,
+                     bgImage: "bg7",
+                     peopleDirection: .none,
+                     talkingPersonDirection: .none,
+                     lineModels: LineModels(names: "", lines: "")),
+        MainViewData(leftImage: "",
                      centerImage: "mal_annoyed",
                      rightImage: "" ,
                      bgImage: "bg7",

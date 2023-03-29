@@ -3,6 +3,13 @@
 class Chapter2_1Data {
     
     static let dataList: [MainViewData] = [
+        MainViewData(leftImage: "",
+                     centerImage: "",
+                     rightImage: "" ,
+                     bgImage: "bg3",
+                     peopleDirection: .none,
+                     talkingPersonDirection: .none,
+                     lineModels: LineModels(names: "", lines: "")),
         
         MainViewData(leftImage: "",
                      centerImage: "",

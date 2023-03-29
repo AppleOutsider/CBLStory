@@ -25,7 +25,7 @@ struct Chapter1View: View {
                     .ignoresSafeArea(.all)
                     .frame(width: geo.size.width, height: geo.size.height)
                     .onAppear {
-                        // bgm 재생
+                       Chapter1Bgm.instance.playSound()
                     }
                 Rectangle()
                     .fill(.white.opacity(0.0))
@@ -66,8 +66,15 @@ struct Chapter1View: View {
                     Spacer()
                     Button {
                         
-                        dataindex += 1
-                        // 상황따라 효과음도 재생
+                        if dataindex + 1 == Chapter1Data.dataList.count {
+                            Chapter1Bgm.instance.stopSound()
+                        } else {
+                            dataindex += 1
+                            if let soundeffect = Chapter1Data.dataList[dataindex].lineModels.soundEffect {
+                                EffectSound.instance.playSound(name: soundeffect)
+                            }
+                        }
+
                         isTouchable = false
                         typeWriter()
                         // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop
@@ -127,8 +134,8 @@ struct MainView_preview: PreviewProvider {
 
 // MARK: - characterimageView
 //func chracterImageView(characterName: String, whichPerson: MainViewData.direction, geo: GeometryProxy, allowDirection: [MainViewData.direction]) -> some View {
-//    return VStack {       
-//        
+//    return VStack {
+//
 //        if allowDirection.contains(whichPerson) {
 //            Image(characterName)
 //                .resizable()
