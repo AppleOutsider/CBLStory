@@ -55,6 +55,7 @@ struct BadEnding2View: View {
                         
                         Text(text)
                             .font(.customMedium33)
+                            .lineSpacing(10)
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 115, trailing: 0))
