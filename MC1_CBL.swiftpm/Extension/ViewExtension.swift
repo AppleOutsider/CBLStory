@@ -143,7 +143,6 @@ extension View {
     // VStack 내부 사이즈 조절
     func textVStackSize() -> some View {
         self
-            //.frame(width: UIScreen.main.bounds.size.width - 40, height: 279)
             .padding()
             .padding(.leading, 40)
             //.padding(.trailing, 600)
@@ -153,7 +152,7 @@ extension View {
     func textWhiteLeft(geo: GeometryProxy) -> some View {
         self
             .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
-            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
+            .frame(maxWidth: geo.size.width / 1.1, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topRight])
@@ -164,7 +163,7 @@ extension View {
     func textWhiteRight(geo: GeometryProxy) -> some View {
         self
             .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
-            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
+            .frame(maxWidth: geo.size.width / 1.1, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topLeft])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft])
@@ -175,7 +174,7 @@ extension View {
     func textWhiteCenter(geo: GeometryProxy) -> some View {
         self
             .background(LinearGradient(gradient: Gradient(colors: [Color.whiteBack.opacity(0.75), Color.whiteBack.opacity(0.5)]), startPoint: .leading, endPoint: .trailing))
-            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
+            .frame(maxWidth: geo.size.width / 1.1, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
@@ -186,7 +185,7 @@ extension View {
     func textBlack(geo: GeometryProxy) -> some View {
         self
             .background(Color.darkBack.opacity(0.5))
-            .frame(maxWidth: geo.size.width / 1.3, maxHeight: geo.size.height / 4)
+            .frame(maxWidth: geo.size.width / 1.1, maxHeight: geo.size.height / 4)
             .cornerRadius(43, corners: [.bottomLeft, .bottomRight, .topRight, .topLeft])
             .overlay{
                 CustomCorner(radius: 43, corners: [.bottomLeft, .bottomRight, .topLeft, .topRight])
@@ -201,10 +200,4 @@ extension View {
 }
 
 
-struct ViewExtension_preview: PreviewProvider {
-    
-    static var previews: some View {
-        EmptyView()
-            .textVStackSize()
-    }
-}
+

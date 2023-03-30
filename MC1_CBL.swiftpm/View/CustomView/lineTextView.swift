@@ -101,7 +101,8 @@ func CustomTextView(lineModels: LineModels, geo: GeometryProxy) -> some View {
             
             Text(lineModels.lines)
                 .textTalkBlack()
-            
+                .lineLimit(2)
+
             Spacer()
         }
         .textVStackSize()
@@ -117,18 +118,14 @@ func CustomtextBlack(lineModels: LineModels, geo: GeometryProxy) -> some View {
         VStack(alignment: .leading, spacing: 30) {
             
             Text(lineModels.names)
-                .bold()
                 .textPersonWhite()
-
-                // .textPersonWhite(geo: GeoProxy)  geo.size.width - 40 geo.size.height / 4 
             
             GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.white.opacity(1), .white.opacity(0)])
                 .gradientFrame(geo: geo)
             
             Text(lineModels.lines)
-                .bold()
                 .textTalkWhite()
-                .lineLimit(3)
+                .lineLimit(2)
             
             Spacer()
             
