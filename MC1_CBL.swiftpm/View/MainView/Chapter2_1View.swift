@@ -35,9 +35,9 @@ struct Chapter2_1View: View {
                         }
                     Rectangle()
                         .fill(.white.opacity(0.0))
-                        .frame(width: w - 40, height: h - 50)
-                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
-                      .padding(20)
+                        .frame(width: w - 40, height: h - 20)
+                        .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
+                        .padding(20)
                     
                     VStack {
                         Spacer()
@@ -142,6 +142,7 @@ struct Chapter2_1View: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
+        .statusBarHidden()
         
         
     }
