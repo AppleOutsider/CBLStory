@@ -120,7 +120,7 @@ class Chapter1Data {
                      bgImage: "bg2",
                      peopleDirection: .all,
                      talkingPersonDirection: .center,
-                     lineModels: LineModels(names: "", lines: "조이위그가 무슨일이지? 사야도어 교수님 편지잖아?")),
+                     lineModels: LineModels(names: "해나포터", lines: "조이위그가 무슨일이지? 사야도어 교수님 편지잖아?")),
 //        MainViewData(leftImage: "ron_puzzled",
 //                     centerImage: "harry_surprised",
 //                     rightImage: "her_surprised",
