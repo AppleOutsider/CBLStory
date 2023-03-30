@@ -22,7 +22,7 @@ struct Select2BtnView: View {
             // 페이지 이동 - 베드 엔딩으로의 이동
             
             //다음 챕터 불러오기
-            NavigationLink(destination: BadEnding2View(), tag: 1, selection: self.$tag ) {
+            NavigationLink(destination: Chapter2_3View(), tag: 1, selection: self.$tag ) {
                 EmptyView()}.navigationBarHidden(true)
                 .labelsHidden()
                 .navigationBarBackButtonHidden(true)

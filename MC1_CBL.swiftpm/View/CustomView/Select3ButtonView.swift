@@ -28,7 +28,7 @@ struct Select3BtnView: View {
                 .navigationBarBackButtonHidden(true)
             
             // 다음 챕터 불러오기
-            NavigationLink(destination: BadEnding3View(), tag: 2, selection: self.$tag ) {
+            NavigationLink(destination: Chapter3_2View(), tag: 2, selection: self.$tag ) {
                 EmptyView()}.navigationBarHidden(true)
                 .labelsHidden()
                 .navigationBarBackButtonHidden(true)
