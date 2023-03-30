@@ -46,7 +46,7 @@ struct BadEnding3View: View {
 //                            .foregroundColor(.white)
 //                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 58, trailing: 0))
                         
-                        Image("fail")
+                        Image("Fail")
                             .scaledToFit()
                             .frame(height: h * 0.2)
                             .onAppear {
