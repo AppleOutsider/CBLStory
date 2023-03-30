@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Font {
     static let customMedium27 = Font.system(size: 27, weight: .regular)
-    static let customBold27 = Font.system(size: 27, weight: .bold)
+    static let customBold30 = Font.system(size: 30, weight: .bold)
     //Font.custom("GmarketSansMedium", size: 27)
     static let customMedium30 = Font.system(size: 30, weight: .regular)
     //Font.custom("GmarketSansMedium", size: 30)

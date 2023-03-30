@@ -97,7 +97,7 @@ struct Chapter4_1View: View {
                     }
                     
                     // Ending Page Push 진행
-                    NavigationLink(destination: Chapter4_1View(), tag: 1, selection: self.$tag ) {}
+                    NavigationLink(destination: EndingView(), tag: 1, selection: self.$tag ) {}
                     
                     VStack {
                         Spacer()

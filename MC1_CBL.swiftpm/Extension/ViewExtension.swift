@@ -117,14 +117,14 @@ extension View {
     // 이름 text 하얀 수식어
     func textPersonWhite() -> some View {
         self
-            .font(.customMedium30)
+            .font(.customBold30)
             .foregroundColor(.white)
             .padding(.top , 30)
     }
     // 이름 text 검은 수식어
     func textPersonBlack() -> some View {
         self
-            .font(.customMedium30)
+            .font(.customBold30)
             .foregroundColor(.black)
             .padding(.top , 30)
     }

@@ -92,7 +92,7 @@ struct BadEnding2View: View {
                                     
                                     Text("다시 선택하기")
                                         .foregroundColor(.black)
-                                        .font(.customBold27)
+                                        .font(.customBold30)
                                     
                                 }
                             
