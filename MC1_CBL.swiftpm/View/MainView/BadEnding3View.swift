@@ -32,6 +32,10 @@ struct BadEnding3View: View {
                         }
                     
                     Rectangle()
+                        .fill(.black.opacity(0.4))
+                        .ignoresSafeArea(.all)
+                    
+                    Rectangle()
                         .fill(.white.opacity(0.0))
                       .frame(width: w - 40, height: h - 20)
                       .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
@@ -46,7 +50,7 @@ struct BadEnding3View: View {
 //                            .foregroundColor(.white)
 //                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 58, trailing: 0))
                         
-                        Image("fail")
+                        Image("Fail")
                             .scaledToFit()
                             .frame(height: h * 0.2)
                             .onAppear {

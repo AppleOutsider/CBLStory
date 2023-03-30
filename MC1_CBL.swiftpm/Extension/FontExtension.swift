@@ -16,7 +16,7 @@ extension Font {
     static let customMedium33 = Font.system(size: 33, weight: .regular)
     //Font.custom("GmarketSansMedium", size: 33)
     
-    static let customLight30 = Font.system(size: 27, weight: .light)
+    static let customLight30 = Font.system(size: 27, weight: .medium)
     //Font.custom("GmarketSansLight", size: 30)
     
 }

@@ -25,6 +25,9 @@ struct Select2View: View {
                             ChoiceBgm.instance.playSound()
                         }
                     
+                    Rectangle()
+                        .fill(.black.opacity(0.4))
+                        .ignoresSafeArea(.all)
                     
                     Rectangle()
                         .fill(.white.opacity(0.0))
