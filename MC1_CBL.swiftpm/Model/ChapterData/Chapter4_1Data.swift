@@ -86,7 +86,7 @@ class Chapter4_1Data {
                      bgImage: "bg16",
                      peopleDirection: .right,
                      talkingPersonDirection: .right,
-                     lineModels: LineModels(names: "나레이션", lines: "말포이는 이번 사건 반성의 의미로, 교과서 'HIG' 100번 받아쓰기 숙제를 받았다.")),
+                     lineModels: LineModels(names: "나레이션", lines: "말포이는 이번 사건 반성의 의미로, ")),
     MainViewData(leftImage: "",
                  centerImage: "",
                  rightImage: "mal_mung" ,
