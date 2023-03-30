@@ -15,17 +15,18 @@ struct CredietView: View {
     @State private var animationStart = false
     @State private var animationEnd = false
     @State var isTransit: Bool = false
-    private let startAnimationDuration = 4.0
+    private let startAnimationDuration = 6.0
     
     var body: some View {
-        ZStack{
-            Image("tim3")
-                .resizable()
-                .aspectRatio(contentMode:.fill)
-                .ignoresSafeArea()
-
-            ScrollView {
-                Text ("""
+        NavigationView {
+            ZStack{
+                Image("tim3")
+                    .resizable()
+                    .aspectRatio(contentMode:.fill)
+                    .ignoresSafeArea()
+                
+                ScrollView {
+                    Text ("""
 \n
 Joy
 Eugene
@@ -44,30 +45,34 @@ Jason
 \n
 
 """)
-                .fontWeight(.bold)
-                .font(.system(size: 80))
-                .foregroundColor (.black)
-                .multilineTextAlignment(.center)
-                .lineSpacing (10)
-                .padding ()
-                .rotation3DEffect(.degrees (60), axis: (x: 0, y: 0, z: 0))
-                .frame (width: 1000)
-                .offset(y: animationStart ? -500 : 0)
-                .animation (Animation.linear(duration: startAnimationDuration),value: animationStart)
-                .onAppear() {
-                    self.animationStart.toggle()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + self.startAnimationDuration) {
-                        self.animationEnd.toggle()
-                        isTransit.toggle()
+                    .fontWeight(.bold)
+                    .font(.system(size: 80))
+                    .foregroundColor (.black)
+                    .multilineTextAlignment(.center)
+                    .lineSpacing (10)
+                    .padding ()
+                    .rotation3DEffect(.degrees (60), axis: (x: 0, y: 0, z: 0))
+                    .frame (width: 1000)
+                    .offset(y: animationStart ? -500 : 0)
+                    .animation (Animation.linear(duration: startAnimationDuration),value: animationStart)
+                    .onAppear() {
+                        self.animationStart.toggle()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + self.startAnimationDuration) {
+                            self.animationEnd.toggle()
+                            isTransit.toggle()
+                        }
                     }
                 }
-            }
-            .padding(.vertical, 30)
-            .allowsHitTesting(animationEnd)
-            .fullScreenCover(isPresented: $isTransit) {
-                EndingView()
+                .padding(.vertical, 30)
+                .allowsHitTesting(animationEnd)
+                .fullScreenCover(isPresented: $isTransit) {
+                    EndingView()
+                }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden()
     }
 }
 
