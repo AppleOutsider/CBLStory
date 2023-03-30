@@ -27,9 +27,13 @@ struct BadEnding2View: View {
                         .resizable()
                         .ignoresSafeArea(.all)
                         .frame(width: w, height: h)
+                        .onAppear{
+                            Badending2_Bgm.instance.playSound()
+                        }
                     
                     Rectangle()
                         .fill(.black.opacity(0.4))
+                        .ignoresSafeArea(.all)
                     
                     Rectangle()
                         .fill(.white.opacity(0.0))
@@ -70,6 +74,7 @@ struct BadEnding2View: View {
                         if(isTouchable){
                             Button(
                                 action: {
+                                    Badending2_Bgm.instance.stopSound()
                                     self.tag = 1;
                                 }
                             ){
