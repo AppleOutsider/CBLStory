@@ -91,13 +91,14 @@ import SwiftUI
 // 베이스로 사용하자
 func CustomTextView(lineModels: LineModels, geo: GeometryProxy) -> some View {
     HStack {
-        VStack(alignment: .leading, spacing: 30) {
+        VStack(alignment: .leading, spacing: 15) {
             
             Text(lineModels.names)
                 .textPersonBlack()
             
             GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.black.opacity(1), .black.opacity(0)])
                 .gradientFrame(geo: geo)
+                .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 10.0, trailing: 0.0))
             
             Text(lineModels.lines)
                 .textTalkBlack()
@@ -115,13 +116,14 @@ func CustomTextView(lineModels: LineModels, geo: GeometryProxy) -> some View {
 // 내레이션 베이스
 func CustomtextBlack(lineModels: LineModels, geo: GeometryProxy) -> some View {
     HStack {
-        VStack(alignment: .leading, spacing: 30) {
+        VStack(alignment: .leading, spacing: 15) {
             
             Text(lineModels.names)
                 .textPersonWhite()
             
             GradientLine(startPoint: .leading, endPoint: .trailing, colors: [.white.opacity(1), .white.opacity(0)])
                 .gradientFrame(geo: geo)
+                .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 10.0, trailing: 0.0))
             
             Text(lineModels.lines)
                 .textTalkWhite()
