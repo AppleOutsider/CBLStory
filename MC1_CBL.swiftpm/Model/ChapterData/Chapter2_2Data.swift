@@ -110,7 +110,7 @@ class Chapter2_2Data {
                      talkingPersonDirection: .right,
                      lineModels: LineModels(names: "화르미온느", lines: "입닥쳐 류포이!")),
         MainViewData(leftImage: "",
-                     centerImage: "mal_angry",
+                     centerImage: "mal_scream",
                      rightImage: "" ,
                      bgImage: "bg8",
                      peopleDirection: .center,

@@ -123,7 +123,7 @@ class Chapter2_1Data {
 //                     lineModels: LineModels(names: "화르미온느", lines: "입닥처 류포이!", soundEffect: nil)),
         
         MainViewData(leftImage: "",
-                     centerImage: "mal_angry",
+                     centerImage: "mal_scream",
                      rightImage: "",
                      bgImage: "bg5",
                      peopleDirection: .center,
