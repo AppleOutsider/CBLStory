@@ -18,13 +18,14 @@ struct Select3View: View {
                 ZStack{
                     Image("bg12")
                         .resizable()
+                        .ignoresSafeArea(.all)
                         .frame(width: w, height: h)
                     
                     
                     Rectangle()
                         .fill(.white.opacity(0.0))
                       .frame(width: w - 40, height: h - 50)
-                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.3))
+                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
                     
                     VStack(alignment: .center){
                         

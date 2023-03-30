@@ -25,12 +25,16 @@ struct BadEnding2View: View {
                 ZStack{
                     Image("bg10")
                         .resizable()
+                        .ignoresSafeArea(.all)
                         .frame(width: w, height: h)
+                    
+                    Rectangle()
+                        .fill(.black.opacity(0.4))
                     
                     Rectangle()
                         .fill(.white.opacity(0.0))
                       .frame(width: w - 40, height: h - 50)
-                      .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
+                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
                     
                     VStack{
 //                        Text("Fail..")
@@ -88,7 +92,7 @@ struct BadEnding2View: View {
                                     
                                     Text("다시 선택하기")
                                         .foregroundColor(.black)
-                                        .font(.customMedium27)
+                                        .font(.customBold27)
                                     
                                 }
                             
