@@ -14,97 +14,110 @@ struct Chapter2_1View: View {
     @State var isTouchable: Bool = true
     @State var text: String = ""
     @State var textLine: String = ""
+    @State var tag:Int? = nil
     
     var body: some View {
-        ZStack {
-            
-            GeometryReader { geo in
-                Image(Chapter2_1Data.dataList[dataindex].bgImage)
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea(.all)
-                    .frame(width: geo.size.width, height: geo.size.height)
-                    .onAppear {
-                        Chapter2_1Bgm.instance.playSound()
-                    }
-                Rectangle()
-                    .fill(.white.opacity(0.0))
-                    .frame(width: geo.size.width - 20, height: geo.size.height - 20)
-                    .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
+        NavigationView{
+            ZStack {
                 
-                VStack {
-                    Spacer()
-                    HStack {
-                        /**
-                         이미지 3개 대체
-                         상황따라 .brigtness, .opacity 조절하게
-                         커스텀뷰로 만들어서 넣을 것
-                         */
-                        if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
-                            
-                            Image(systemName: "bolt")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 3)
+                GeometryReader { geo in
+                    Image(Chapter2_1Data.dataList[dataindex].bgImage)
+                        .resizable()
+                        .scaledToFill()
+                        .ignoresSafeArea(.all)
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .onAppear {
+                            Chapter2_1Bgm.instance.playSound()
                         }
-                        if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
-                            
-                            Image(systemName: "bolt")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 3)
-                        }
-                        if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
-                            Image(systemName: "bolt")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 3)
-                        }
-                    }
-                }
-                VStack {
-                    Spacer()
-                    Button {
-                        
-                        if dataindex + 1 == Chapter2_1Data.dataList.count {
-                            Chapter2_1Bgm.instance.stopSound()
-                        } else {
-                            dataindex += 1
-                            if let soundeffect = Chapter2_1Data.dataList[dataindex].lineModels.soundEffect {
-                                EffectSound.instance.playSound(name: soundeffect)
+                    Rectangle()
+                        .fill(.white.opacity(0.0))
+                        .frame(width: geo.size.width - 20, height: geo.size.height - 20)
+                        .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
+                    
+                    VStack {
+                        Spacer()
+                        HStack {
+                            /**
+                             이미지 3개 대체
+                             상황따라 .brigtness, .opacity 조절하게
+                             커스텀뷰로 만들어서 넣을 것
+                             */
+                            if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
+                                
+                                Image(systemName: "bolt")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width / 3)
+                            }
+                            if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
+                                
+                                Image(systemName: "bolt")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width / 3)
+                            }
+                            if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
+                                Image(systemName: "bolt")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geo.size.width / 3)
                             }
                         }
-                        isTouchable = false
-                        typeWriter()
-                        // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop
-                    } label: {
-                        
-                        if Chapter2_1Data.dataList[dataindex].lineModels.names == "내레이션" {
-                            CustomBlackCenter(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
-                                              line: text, soundEffect: nil, geo: geo)
-                        } else {
+                    }
+                    
+                    NavigationLink(destination: Select1View(), tag: 1, selection: self.$tag ) {}
+                    
+                    VStack {
+                        Spacer()
+                        Button {
+                            if dataindex + 1 == Chapter2_1Data.dataList.count {
+                                Chapter2_1Bgm.instance.stopSound()
+                                self.tag = 1;
+                            }
+                            else {
+                                dataindex += 1
+                                if let soundeffect = Chapter2_1Data.dataList[dataindex].lineModels.soundEffect {
+                                    EffectSound.instance.playSound(name: soundeffect)
+                                }
+                            }
+                            isTouchable = false
+                            typeWriter()
+                            // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop
+                        } label: {
                             
-                            switch Chapter2_1Data.dataList[dataindex].talkingPersonDirection {
-                            case .left:
-                                CustomWhiteLeft(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
-                                                line: text, soundEffect: nil, geo: geo)
-                            case .right:
-                                CustomWhiteRight(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
-                                                 line: text, soundEffect: nil, geo: geo)
-                            default:
-                                CustomWhiteCenter(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
+                            if Chapter2_1Data.dataList[dataindex].lineModels.names == "내레이션" {
+                                CustomBlackCenter(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
                                                   line: text, soundEffect: nil, geo: geo)
+                            } else {
+                                
+                                switch Chapter2_1Data.dataList[dataindex].talkingPersonDirection {
+                                case .left:
+                                    CustomWhiteLeft(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
+                                                    line: text, soundEffect: nil, geo: geo)
+                                case .right:
+                                    CustomWhiteRight(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
+                                                     line: text, soundEffect: nil, geo: geo)
+                                default:
+                                    CustomWhiteCenter(name: Chapter2_1Data.dataList[dataindex].lineModels.names,
+                                                      line: text, soundEffect: nil, geo: geo)
+                                }
+                                
+                                
                             }
-                            
-                            
                         }
+                        .frame(width: geo.size.width, height: geo.size.height / 3)
                     }
-                    .frame(width: geo.size.width, height: geo.size.height / 3)
                 }
             }
+            .allowsHitTesting(isTouchable)
         }
-        .allowsHitTesting(isTouchable)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarHidden(true)
+        .navigationBarBackButtonHidden()
+        
+        
     }
+        
     
     // MARK: - 타이핑 애니메이션
     func typeWriter(at position: Int = 0) {

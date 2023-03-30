@@ -22,16 +22,12 @@ struct Select1BtnView: View {
             // 페이지 이동 - 베드 엔딩으로의 이동
             
             //다음 챕터 불러오기
-            NavigationLink(destination: BadEnding1View(), tag: 1, selection: self.$tag ) {
-                EmptyView()}.navigationBarHidden(true)
-                .labelsHidden()
-                .navigationBarBackButtonHidden(true)
+            NavigationLink(destination: Chapter2_2View(), tag: 1, selection: self.$tag ) {
+                EmptyView()}
             
             // 베드 엔딩 배경 이미지 생각 필요
             NavigationLink(destination: BadEnding1View(), tag: 2, selection: self.$tag ) {
-                EmptyView()}.navigationBarHidden(true)
-                .labelsHidden()
-                .navigationBarBackButtonHidden(true)
+                EmptyView()}
             
             //선택 버튼
             Button(
