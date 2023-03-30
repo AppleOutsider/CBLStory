@@ -57,9 +57,9 @@ class Chapter2_1Data {
 //                     peopleDirection: .left, talkingPersonDirection: .left,
 //                     lineModels: LineModels(names: "론위즐리", lines: "악당도 벌금은 무서울거야.", soundEffect: nil)),
         
-        MainViewData(leftImage: "ron_suprised",
-                     centerImage: "harry_suprised",
-                     rightImage: "her_suprised",
+        MainViewData(leftImage: "ron_surprised",
+                     centerImage: "harry_surprised",
+                     rightImage: "her_surprised",
                      bgImage: "bg5",
                      peopleDirection: .right,
                      talkingPersonDirection: .right,
@@ -81,11 +81,11 @@ class Chapter2_1Data {
                      talkingPersonDirection: .center,
                      lineModels: LineModels(names: "말포이", lines: "너희가 날 상..", soundEffect: nil)),
         
-        MainViewData(leftImage: "ron_scream",
+        MainViewData(leftImage: "ron_annoyed",
                      centerImage: "harry_scream",
-                     rightImage: "her_scream",
+                     rightImage: "her_annoyed",
                      bgImage: "bg5",
-                     peopleDirection: .center,
+                     peopleDirection: .all,
                      talkingPersonDirection: .center,
                      lineModels: LineModels(names: "해리포터", lines: "입닥처 말포이!!", soundEffect: nil)),
         
@@ -98,11 +98,11 @@ class Chapter2_1Data {
                      lineModels: LineModels(names: "말포이", lines: "아니. 내말은.. 너희..", soundEffect: nil)),
         
         // 이 부분 확인 필요 - 사람 위치
-        MainViewData(leftImage: "ron_scream",
+        MainViewData(leftImage: "ron_annoyed",
                      centerImage: "harry_scream",
-                     rightImage: "her_scream",
+                     rightImage: "her_annoyed",
                      bgImage: "bg5",
-                     peopleDirection: .leftAndRight,
+                     peopleDirection: .all,
                      talkingPersonDirection: .left,
                      lineModels: LineModels(names: "론위즐리", lines: "입닥처 말포이!", soundEffect: nil)),
         
@@ -114,9 +114,9 @@ class Chapter2_1Data {
 //                     talkingPersonDirection: .center,
 //                     lineModels: LineModels(names: "말포이", lines: "아니. 내말좀 들어..", soundEffect: nil)),
 //        
-//        MainViewData(leftImage: "ron_scream",
+//        MainViewData(leftImage: "ron_annoyed",
 //                     centerImage: "harry_scream",
-//                     rightImage: "her_scream",
+//                     rightImage: "her_annoyed",
 //                     bgImage: "bg5",
 //                     peopleDirection: .all,
 //                     talkingPersonDirection: .right,
@@ -157,7 +157,7 @@ class Chapter2_1Data {
                      centerImage: "harry_smile",
                      rightImage: "her_smile",
                      bgImage: "bg5",
-                     peopleDirection: .center,
+                     peopleDirection: .all,
                      talkingPersonDirection: .center,
                      lineModels: LineModels(names: "해리포터", lines: "뭐야~ 다 끝났잖아~ 우리가 할게 없네~", soundEffect: nil)),
         

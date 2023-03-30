@@ -27,12 +27,13 @@ struct Chapter1View: View {
                         .ignoresSafeArea(.all)
                         .frame(width: geo.size.width, height: geo.size.height)
                         .onAppear {
-                           Chapter1Bgm.instance.playSound()
+                            Chapter1Bgm.instance.playSound()
                         }
                     Rectangle()
                         .fill(.white.opacity(0.0))
-                        .frame(width: geo.size.width - 20, height: geo.size.height - 20)
+                        .frame(width: geo.size.width - 40, height: geo.size.height - 50)
                         .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
+                        .padding(20)
                     
                     VStack {
                         Spacer()
@@ -42,25 +43,55 @@ struct Chapter1View: View {
                              상황따라 .brigtness, .opacity 조절하게
                              커스텀뷰로 만들어서 넣을 것
                              */
-                            if let imageName = Chapter1Data.dataList[dataindex].leftImage {
+                                if let imageName = Chapter1Data.dataList[dataindex].leftImage {
+                                    
+                                    if Chapter1Data.dataList[dataindex].talkingPersonDirection == .left || Chapter1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                        
+                                    } else {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                            .brightness(-0.5)
+                                       
+                                    }
+                                }
+                                if let imageName = Chapter1Data.dataList[dataindex].centerImage {
+                                    
+                                    if Chapter1Data.dataList[dataindex].talkingPersonDirection == .center || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                        
+                                    } else {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                            .brightness(-0.5)
                                 
-                                Image(systemName: "bolt")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width / 3)
-                            }
-                            if let imageName = Chapter1Data.dataList[dataindex].leftImage {
-                                
-                                Image(systemName: "bolt")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width / 3)
-                            }
-                            if let imageName = Chapter1Data.dataList[dataindex].leftImage {
-                                Image(systemName: "bolt")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width / 3)
+                                    }
+                                }
+                            if let imageName = Chapter1Data.dataList[dataindex].rightImage {
+                                if Chapter1Data.dataList[dataindex].talkingPersonDirection == .right || Chapter1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                    
+                                } else {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                        .brightness(-0.5)
+                                        
+                                }
                             }
                         }
                     }
@@ -80,7 +111,7 @@ struct Chapter1View: View {
                                     EffectSound.instance.playSound(name: soundeffect)
                                 }
                             }
-
+                            
                             isTouchable = false
                             typeWriter()
                             // data 다 읽었으면 선택지 화면으로 넘어가게함 & 재생중인 bgm stop
@@ -142,22 +173,4 @@ struct MainView_preview: PreviewProvider {
     }
 }
 
-// MARK: - characterimageView
-//func chracterImageView(characterName: String, whichPerson: MainViewData.direction, geo: GeometryProxy, allowDirection: [MainViewData.direction]) -> some View {
-//    return VStack {
-//
-//        if allowDirection.contains(whichPerson) {
-//            Image(characterName)
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: geo.size.width / 3)
-//        } else {
-//            Image(characterName)
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: geo.size.width / 3)
-//                .brightness(-0.4)
-//                .opacity(0.6)
-//        }
-//    }
-//}
+

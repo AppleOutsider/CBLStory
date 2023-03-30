@@ -15,7 +15,7 @@ struct Chapter2_3View: View {
     @State var text: String = ""
     @State var textLine: String = ""
     @State var tag:Int? = nil
-
+    
     
     var body: some View {
         NavigationView{
@@ -32,41 +32,67 @@ struct Chapter2_3View: View {
                         }
                     Rectangle()
                         .fill(.white.opacity(0.0))
-                        .frame(width: geo.size.width - 20, height: geo.size.height - 20)
+                        .frame(width: geo.size.width - 40, height: geo.size.height - 50)
                         .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
+                        .padding(20)
                     
                     VStack {
                         Spacer()
                         HStack {
-                            /**
-                             이미지 3개 대체
-                             상황따라 .brigtness, .opacity 조절하게
-                             커스텀뷰로 만들어서 넣을 것
-                             */
                             if let imageName = Chapter2_3Data.dataList[dataindex].leftImage {
                                 
-                                Image(systemName: "bolt")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width / 3)
+                                if Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .left || Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .all {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                    
+                                } else {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                        .brightness(-0.4)
+                                        .opacity(0.4)
+                                }
                             }
-                            if let imageName = Chapter2_3Data.dataList[dataindex].leftImage {
+                            if let imageName = Chapter2_3Data.dataList[dataindex].centerImage {
                                 
-                                Image(systemName: "bolt")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width / 3)
+                                if Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .center || Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .all {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                    
+                                } else {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                        .brightness(-0.4)
+                                        .opacity(0.4)
+                                }
                             }
-                            if let imageName = Chapter2_3Data.dataList[dataindex].leftImage {
-                                Image(systemName: "bolt")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: geo.size.width / 3)
+                            if let imageName = Chapter2_3Data.dataList[dataindex].rightImage {
+                                if Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .right || Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter2_3Data.dataList[dataindex].talkingPersonDirection == .all {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                    
+                                } else {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                        .brightness(-0.4)
+                                        .opacity(0.4)
+                                }
                             }
                         }
                     }
                     NavigationLink(destination: Chapter3_1View(), tag: 1, selection: self.$tag ) {}
-
+                    
                     VStack {
                         Spacer()
                         Button {
