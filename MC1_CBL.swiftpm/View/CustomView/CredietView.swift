@@ -73,6 +73,7 @@ Jason
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
+        .statusBarHidden()
     }
 }
 

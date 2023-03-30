@@ -72,6 +72,7 @@ struct OpeningView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
+        .statusBarHidden()
     }
     
     struct Opening_Previews: PreviewProvider {

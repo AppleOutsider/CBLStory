@@ -117,6 +117,7 @@ struct SplashView: View {
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden()
+            .statusBarHidden()
 //            .fullScreenCover(isPresented: $isTransit) {
 //                OpeningView()
 //            }
