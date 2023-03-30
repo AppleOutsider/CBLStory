@@ -21,6 +21,10 @@ struct Chapter1View: View {
             ZStack {
                 
                 GeometryReader { geo in
+                    
+                    let w = geo.size.width
+                    let h = geo.size.height
+                    
                     Image(Chapter1Data.dataList[dataindex].bgImage)
                         .resizable()
                         .scaledToFill()
@@ -31,9 +35,8 @@ struct Chapter1View: View {
                         }
                     Rectangle()
                         .fill(.white.opacity(0.0))
-                        .frame(width: geo.size.width - 40, height: geo.size.height - 50)
-                        .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
-                        .padding(20)
+                        .frame(width: w - 40, height: h - 50)
+                        .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
                     
                     VStack {
                         Spacer()
@@ -43,40 +46,40 @@ struct Chapter1View: View {
                              상황따라 .brigtness, .opacity 조절하게
                              커스텀뷰로 만들어서 넣을 것
                              */
-                                if let imageName = Chapter1Data.dataList[dataindex].leftImage {
-                                    
-                                    if Chapter1Data.dataList[dataindex].talkingPersonDirection == .left || Chapter1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
-                                        Image(imageName) // 수정해야함
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: geo.size.width / 3)
-                                        
-                                    } else {
-                                        Image(imageName) // 수정해야함
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: geo.size.width / 3)
-                                            .brightness(-0.5)
-                                       
-                                    }
-                                }
-                                if let imageName = Chapter1Data.dataList[dataindex].centerImage {
-                                    
-                                    if Chapter1Data.dataList[dataindex].talkingPersonDirection == .center || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
-                                        Image(imageName) // 수정해야함
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: geo.size.width / 3)
-                                        
-                                    } else {
-                                        Image(imageName) // 수정해야함
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: geo.size.width / 3)
-                                            .brightness(-0.5)
+                            if let imageName = Chapter1Data.dataList[dataindex].leftImage {
                                 
-                                    }
+                                if Chapter1Data.dataList[dataindex].talkingPersonDirection == .left || Chapter1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                    
+                                } else {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                        .brightness(-0.5)
+                                    
                                 }
+                            }
+                            if let imageName = Chapter1Data.dataList[dataindex].centerImage {
+                                
+                                if Chapter1Data.dataList[dataindex].talkingPersonDirection == .center || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                    
+                                } else {
+                                    Image(imageName) // 수정해야함
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: geo.size.width / 3)
+                                        .brightness(-0.5)
+                                    
+                                }
+                            }
                             if let imageName = Chapter1Data.dataList[dataindex].rightImage {
                                 if Chapter1Data.dataList[dataindex].talkingPersonDirection == .right || Chapter1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter1Data.dataList[dataindex].talkingPersonDirection == .all {
                                     Image(imageName) // 수정해야함
@@ -90,7 +93,7 @@ struct Chapter1View: View {
                                         .scaledToFit()
                                         .frame(width: geo.size.width / 3)
                                         .brightness(-0.5)
-                                        
+                                    
                                 }
                             }
                         }
