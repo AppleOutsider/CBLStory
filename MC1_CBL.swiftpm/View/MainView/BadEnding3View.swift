@@ -25,12 +25,13 @@ struct BadEnding3View: View {
                 ZStack{
                     Image("bg13")
                         .resizable()
+                        .ignoresSafeArea(.all)
                         .frame(width: w, height: h)
                     
                     Rectangle()
                         .fill(.white.opacity(0.0))
                       .frame(width: w - 40, height: h - 50)
-                      .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
+                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
                     
                     VStack{
 //                        Text("Fail..")
