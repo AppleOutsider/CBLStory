@@ -22,6 +22,10 @@ struct Chapter3_2View: View {
             ZStack {
                 
                 GeometryReader { geo in
+                    
+                    let w = geo.size.width
+                    let h = geo.size.height
+                    
                     Image(Chapter3_2Data.dataList[dataindex].bgImage)
                         .resizable()
                         .scaledToFill()
@@ -32,9 +36,8 @@ struct Chapter3_2View: View {
                         }
                     Rectangle()
                         .fill(.white.opacity(0.0))
-                        .frame(width: geo.size.width - 40, height: geo.size.height - 50)
-                        .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
-                        .padding(20)
+                        .frame(width: w - 40, height: h - 50)
+                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
                     
                     VStack {
                         Spacer()
@@ -52,8 +55,8 @@ struct Chapter3_2View: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: geo.size.width / 3)
-                                        .brightness(-0.4)
-                                        .opacity(0.4)
+                                        .brightness(-0.5)
+                                      
                                 }
                             }
                             if let imageName = Chapter3_2Data.dataList[dataindex].centerImage {
@@ -69,8 +72,8 @@ struct Chapter3_2View: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: geo.size.width / 3)
-                                        .brightness(-0.4)
-                                        .opacity(0.4)
+                                        .brightness(-0.5)
+                                       
                                 }
                             }
                             if let imageName = Chapter3_2Data.dataList[dataindex].rightImage {
@@ -85,8 +88,8 @@ struct Chapter3_2View: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: geo.size.width / 3)
-                                        .brightness(-0.4)
-                                        .opacity(0.4)
+                                        .brightness(-0.5)
+                                        
                                 }
                             }
                         }

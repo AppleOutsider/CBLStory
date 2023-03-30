@@ -21,6 +21,10 @@ struct Chapter2_1View: View {
             ZStack {
                 
                 GeometryReader { geo in
+                    
+                    let w = geo.size.width
+                    let h = geo.size.height
+                    
                     Image(Chapter2_1Data.dataList[dataindex].bgImage)
                         .resizable()
                         .scaledToFill()
@@ -31,63 +35,60 @@ struct Chapter2_1View: View {
                         }
                     Rectangle()
                         .fill(.white.opacity(0.0))
-                        .frame(width: geo.size.width - 40, height: geo.size.height - 50)
-                        .border(width: 1.0, edges: [.bottom, .leading, .top, .trailing], color: .white)
-                        .padding(20)
+                        .frame(width: w - 40, height: h - 50)
+                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
                     
                     VStack {
                         Spacer()
                         HStack {
-                            if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
-                                
-                                if Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .left || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .all {
-                                    Image(imageName) // 수정해야함
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: geo.size.width / 3)
+                                if let imageName = Chapter2_1Data.dataList[dataindex].leftImage {
                                     
-                                } else {
-                                    Image(imageName) // 수정해야함
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: geo.size.width / 3)
-                                        .brightness(-0.4)
-                                        .opacity(0.4)
+                                    if Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .left || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                        
+                                    } else {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                            .brightness(-0.5)
+                                            
+                                    }
                                 }
-                            }
-                            if let imageName = Chapter2_1Data.dataList[dataindex].centerImage {
-                                
-                                if Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .center || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .all {
-                                    Image(imageName) // 수정해야함
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: geo.size.width / 3)
+                                if let imageName = Chapter2_1Data.dataList[dataindex].centerImage {
                                     
-                                } else {
-                                    Image(imageName) // 수정해야함
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: geo.size.width / 3)
-                                        .brightness(-0.4)
-                                        .opacity(0.4)
+                                    if Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .center || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                        
+                                    } else {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                            .brightness(-0.5)
+                                    }
                                 }
-                            }
-                            if let imageName = Chapter2_1Data.dataList[dataindex].rightImage {
-                                if Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .right || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .all {
-                                    Image(imageName) // 수정해야함
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: geo.size.width / 3)
-                                    
-                                } else {
-                                    Image(imageName) // 수정해야함
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: geo.size.width / 3)
-                                        .brightness(-0.4)
-                                        .opacity(0.4)
+                                if let imageName = Chapter2_1Data.dataList[dataindex].rightImage {
+                                    if Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .right || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .leftAndRight || Chapter2_1Data.dataList[dataindex].talkingPersonDirection == .all {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                        
+                                    } else {
+                                        Image(imageName) // 수정해야함
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: geo.size.width / 3)
+                                            .brightness(-0.5)
+                                    }
                                 }
-                            }
                         }
                     }
                     
