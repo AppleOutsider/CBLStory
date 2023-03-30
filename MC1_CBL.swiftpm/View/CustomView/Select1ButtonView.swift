@@ -32,6 +32,7 @@ struct Select1BtnView: View {
             //선택 버튼
             Button(
                 action: {
+                    ChoiceBgm.instance.stopSound()
                     if(selectIdx == 1){
                         self.tag = 1;
                         // 다음 챕터로 이동하기 위해 tag = 1로 설정하여 tag == 1에 해당하는 navigation link 동작

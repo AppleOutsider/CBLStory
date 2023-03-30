@@ -20,6 +20,9 @@ struct Select3View: View {
                         .resizable()
                         .ignoresSafeArea(.all)
                         .frame(width: w, height: h)
+                        .onAppear{
+                            ChoiceBgm.instance.playSound()
+                        }
                     
                     
                     Rectangle()
