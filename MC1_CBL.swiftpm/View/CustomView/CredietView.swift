@@ -19,7 +19,7 @@ struct CredietView: View {
     
     var body: some View {
         ZStack{
-            Image("tim2")
+            Image("tim3")
                 .resizable()
                 .aspectRatio(contentMode:.fill)
                 .ignoresSafeArea()
@@ -112,7 +112,8 @@ struct EndingView: View {
                     .resizable()
                     .frame(width: 600, height: 600)
                     .aspectRatio(contentMode:.fit)
-                
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
+
 
                 //                디 엔드 이미지
                 Image("theend")
@@ -126,7 +127,7 @@ struct EndingView: View {
                 } label: {
                     Image("again")
                         .resizable()
-                        .frame(width: 240, height: 40)
+                        .frame(width: 240, height: 80)
                         .aspectRatio(contentMode:.fit)
                 }
                 
@@ -152,6 +153,8 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg1 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
+
                     Spacer()
                     Button {
                         isEasteregg2.toggle()
@@ -162,6 +165,7 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg2 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
                     Spacer()
                     Button {
                         isEasteregg3.toggle()
@@ -172,6 +176,7 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg3 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
                     Spacer()
                 }
                 Spacer()
@@ -186,6 +191,7 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg4 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0))
                     Spacer()
                     Button {
                         isEasteregg5.toggle()
@@ -196,6 +202,7 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg5 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 90.0, bottom: 0.0, trailing: 0.0))
                     Spacer()
                 }
                 Spacer()
@@ -210,6 +217,7 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg6 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 80.0, trailing: 0.0))
                     Spacer()
                     Button {
                         isEasteregg7.toggle()
@@ -220,6 +228,7 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg7 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 80.0, trailing: 0.0))
                     Spacer()
                     Button {
                         isEasteregg8.toggle()
@@ -230,6 +239,7 @@ struct EndingView: View {
                             .aspectRatio(contentMode:.fit)
                             .opacity(isEasteregg8 ? 1 : 0.01)
                     }
+                    .padding(EdgeInsets.init(top: 0.0, leading: 0.0, bottom: 80.0, trailing: 0.0))
                     Spacer()
                 }
                 Spacer()
