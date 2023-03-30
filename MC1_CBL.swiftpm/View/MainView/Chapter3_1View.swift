@@ -36,8 +36,9 @@ struct Chapter3_1View: View {
                         }
                     Rectangle()
                         .fill(.white.opacity(0.0))
-                        .frame(width: w - 40, height: h - 50)
-                      .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
+                        .frame(width: w - 40, height: h - 20)
+                        .border(width: 2.5, edges: [.bottom, .leading, .top, .trailing], color: .white.opacity(0.4))
+                        .padding(20)
                     
                     VStack {
                         Spacer()
@@ -88,8 +89,8 @@ struct Chapter3_1View: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: geo.size.width / 3)
-                                        .brightness(-0.4)
-                                        .opacity(0.4)
+                                        .brightness(-0.5)
+                                        
                                 }
                             }
                         }
@@ -144,6 +145,7 @@ struct Chapter3_1View: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden()
+        .statusBarHidden()
         
     }
     

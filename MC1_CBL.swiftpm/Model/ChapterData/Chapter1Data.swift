@@ -225,14 +225,8 @@ class Chapter1Data {
                      bgImage: "bg2",
                      peopleDirection: .none,
                      talkingPersonDirection: .none,
-                     lineModels: LineModels(names: "내래이션", lines: "덤블도어의 편지를 받고 모험을 떠나는 3명의 마법사들에게 앞으로 무슨 일이 펼쳐질 것인가.")),
-        MainViewData(leftImage: "",
-                     centerImage: "",
-                     rightImage: "" ,
-                     bgImage: "bg2",
-                     peopleDirection: .none,
-                     talkingPersonDirection: .none,
-                     lineModels: LineModels(names: "내래이션", lines: "3명의 마법사들에게 앞으로 무슨 일이 펼쳐질 것인가."))
+                     lineModels: LineModels(names: "내레이션", lines: "덤블도어의 편지를 받고 모험을 떠나는 3명의 마법사들에게 앞으로 무슨 일이 펼쳐질 것인가."))
+      
         
     ]
 }
